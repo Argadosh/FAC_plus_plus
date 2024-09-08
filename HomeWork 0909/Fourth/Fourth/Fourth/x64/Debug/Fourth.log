@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\spor-\source\repos\FAC++\HomeWork 0909\Fourth\Fourth\main.cpp(112,1): warning C4715: area_intersection_two_rectangle: значение возвращается не при всех путях выполнения
+  Fourth.vcxproj -> C:\Users\spor-\source\repos\FAC++\HomeWork 0909\Fourth\Fourth\x64\Debug\Fourth.exe
