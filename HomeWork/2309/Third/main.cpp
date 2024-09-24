@@ -70,7 +70,7 @@ int squre_intersection_rectangles(std::vector<Rectangle> v) {
 
 	}
 
-	int squre = (area_intersect.p2.x - area_intersect.p1.x) * (area_intersect.p2.y - area_intersect.p1.y);
+	int squre = (area_intersect.p2.x - area_intersect.p1.x) * (area_intersect.p1.y - area_intersect.p2.y);
 
 	return squre;
 }
