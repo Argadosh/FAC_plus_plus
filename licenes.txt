@@ -59,3 +59,92 @@ c++ 11 и его особенности
 Строго следуйте code style "гайдам", принятым в вашей корпоративной среде
 
 https:/tproger.ru/translations/stanford-cpp-style-guide
+
+25.09.24
+
+Тема: <Структуры данных>
+
+	Stack и его применение в алгоритмах
+
+Опр.
+	Steck-ом называется обстрактный тип данных, обладающий следующим набором операций:
+		1) push(x) - положить x на вершину steck
+		2) pop() - извлечь вершину
+		3) top() - прочитать вершину
+		4) size() - получить размер steck
+		
+Возможные реализации stack:
+	1) Реализация с помощью массивов.
+		Для хранения эл-ов stack резервируется массив зараннее определённого размера и создаётся счётчик count, который показывает на первую свободную ячейку
+	2) Реализация с помощью связного списка.
+		Вершина -> [data|next] -> [data|next] -> ... -> [ | ] ->
+		1) push
+			{x, next} -> top -> [|] -> [|] -> ...
+			после перекинуть top перед первой ячейкой
+		2) pop
+		top -> [|] -> [|] ->
+		tmp = top;
+		top = top.next;
+		delete tmp;
+	3) Реализация с помощью "расширяемого" массива
+		Для хранения данных выделяется массив.
+		При этом, если операция push должна привести к переполнению этого массива,
+			то выделяется массив в два раза большего размера, в который переносятся данные из старого.
+	4) Комбинированная реализация
+		Для хранения используем список массивов
+			[|||] -> [|||||] -> [||||||||] ->
+		Политика увеличения размеров чанков:
+			1) Постоянный размер ( к примеру 100 )
+			2) Линейный рост: (100, 200, 300, ....)
+			3) Квадратичный рост: (100, 400, 900, 1600, ....)
+			4) Экспонециальный рост: (2^0 * 100, 2^1 * 100, 2^3 * 100, ... )
+		Политика удаления чанков:
+			1) Когда опустошается половина последнего чанка, то опустошаем пустой чанк
+			2) Когда опустошаются два последних чанка, опустошаем последний пустой чанк
+Интерфейс класса stack:
+	
+	1) С помощью массива:
+		template <typename T>
+		class stack_m{
+		private:
+			T* data;
+			size_t capacity, count;
+		public:
+			stack_m(size_t _capacity = 50000);
+			~stack_m();
+			void push(const T &new_top);
+			void push(T&& new_top);
+			void pop();
+			T& top();
+			const T& top() const;
+			size_t size() const;
+			stack_m(const stack_m<T> &obj);
+			stack_m(stack_m<T> &&obj);
+			stack_m<T>& operator= (const stack_m<T> &obj);
+			stack_m<T>& operator= (stack_m<T> &&obj);
+		};
+		
+		template <typename T>
+		stack_m<T>::stack_m(size_t _capacity){
+			count = 0;
+			capacity = _capacity;
+			data = new T[capacity];
+		}
+		template <typename T>
+		stack_m<T>::~stack_m(){
+			delete []data;
+		}
+		template <typename T>
+		void stack_m<T>::push(const T &new_top){
+			if (count == capacity){
+				throw std::overflow(); //Возможно не прям так.
+			}
+			data[count++] = new_top;
+		}
+		template <typename T>
+		void stack_m<T>::push(T&& new_top){
+			if (count == capacity){
+				throw std::overflow(); //Возможно не прям так.
+			}
+			data[count++] = new_top;
+		}
