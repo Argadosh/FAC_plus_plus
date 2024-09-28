@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\spor-\source\repos\FAC++\HomeWork\3009\main.cpp(270,17): error C3861: obj_current: идентификатор не найден
+C:\Users\spor-\source\repos\FAC++\HomeWork\3009\main.cpp(270,17): error C2065: obj_current: необъявленный идентификатор
