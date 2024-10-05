@@ -1,6 +1,5 @@
 #include <iostream>
 
-
 template <typename T>
 class stack_m { //Realization on array
 private:
@@ -19,11 +18,6 @@ public:
 	stack_m(stack_m<T>&& obj);
 	stack_m<T>& operator= (const stack_m<T>& obj);
 	stack_m<T>& operator= (stack_m<T>&& obj);
-	void extract_min(stack_m<T>& src, stack_m<T>& dest);
-	void select_sort(stack_m<T>& src);
-	size_t count_occurrences(const T& value);
-	size_t count_occurrences(T&& value);
-	bool is_two_stack_equel(stack_m<T>& other);
 };
 
 template <typename T>
@@ -137,50 +131,108 @@ stack_m<T>& stack_m<T>::operator=(stack_m<T>&& obj) {
 	return *this;
 }
 
-template<typename T>
-void stack_m<T>::extract_min(stack_m<T>& src, stack_m<T>& dest){
+template<typename stack_t> // task 2
+void extract_min(stack_t& src, stack_t& dest){
+	if (src.size() == 0) {
+		return;
+	}
+
+	while (dest.size() != 0) {
+		dest.pop();
+	}
+
+	auto min_element = src.top();
+
+	stack_t tmp_1 = src;
+
+	for (size_t i = 0; i < src.size(); i++) {
+		if (tmp_1.top() < min_element) {
+			min_element = tmp_1.top();
+		}
+		tmp_1.pop();
+	}
+
+	tmp_1 = src;
+
+	stack_t tmp;
+
+	for (size_t i = 0; i < src.size(); i++) {
+		if (tmp_1.top() == min_element) {
+			dest.push(min_element);
+		}
+		else {
+			tmp.push(tmp_1.top());
+		}
+		tmp_1.pop();
+	}
+
+	src = tmp;
+}
+
+template<typename stack_t> // task 3
+void select_sort(stack_t& src){
+
+	stack_t tmp;
+	stack_t min;
+
+	while (src.size() != 0) {
+		extract_min(src, min);
+		while (min.size() != 0) {
+			tmp.push(min.top());
+			min.pop();
+		}
+	}
+
+	src = tmp;
 
 }
 
-template<typename T>
-void stack_m<T>::select_sort(stack_m<T>& src){
-
-}
-
-template<typename T>
-size_t stack_m<T>::count_occurrences(const T& value){
+template<typename stack_t> // task 5
+size_t count_occurrences(stack_t& stack, const decltype(stack.top())& value){
 	size_t c_occurrences = 0;
 
-	for (size_t i = 0; i < count; i++) {
-		if (data[i] == value) {
+	stack_t tmp = stack;
+
+	for (size_t i = 0; i < stack.size(); i++) {
+		if (tmp.top() == value) {
 			c_occurrences++;
 		}
+		tmp.pop();
 	}
 	return c_occurrences;
 }
 
-template <typename T>
-size_t stack_m<T>::count_occurrences(T&& value) {
+template <typename stack_t> // task 5
+size_t count_occurrences(stack_t& stack, const decltype(stack.top())&& value) {
 	size_t c_occurrences = 0;
 
-	for (size_t i = 0; i < count; i++) {
-		if (data[i] == value) {
+	stack_t tmp = stack;
+
+	for (size_t i = 0; i < stack.size(); i++) {
+		if (tmp.top() == value) {
 			c_occurrences++;
 		}
+		tmp.pop();
 	}
 
 	return c_occurrences;
 }
 
-template<typename T>
-bool stack_m<T>::is_two_stack_equel(stack_m<T>& other){
-	if (count != other.size()) {
+template<typename stack_t> // task 5
+bool is_two_stack_equel(stack_t& f_stack, stack_t& s_stack){
+	if (f_stack.size() != s_stack.size()) {
 		return false;
 	}
-	for (size_t i = 0; i < count; i++) {
-		if (data[i] != other.data[i]) {
+
+	stack_t tmp_f = f_stack;
+	stack_t tmp_s = s_stack;
+
+	for (size_t i = 0; i < f_stack.size(); i++) {
+		if (tmp_f.top() != tmp_s.top()) {
 			return false;
 		}
+		tmp_f.pop();
+		tmp_s.pop();
 	}
 	return true;
 }
@@ -189,31 +241,34 @@ bool stack_m<T>::is_two_stack_equel(stack_m<T>& other){
 int main() {
 	stack_m<int> s;
 	//int v = 5;
+	s.push(8);
+	s.push(8);
+	s.push(2);
+	s.push(3);
+	s.push(2);
 	s.push(5);
-	s.push(5);
-	s.push(5);
-	s.push(5);
-	s.push(5);
-	s.push(10);
-	s.push(10);
-	s.push(10);
+	s.push(6);
+	s.push(7);
+	s.push(8);
 
-	stack_m<int> v;
-	v.push(5);
-	v.push(5);
-	v.push(5);
-	v.push(5);
-	v.push(50);
-	v.push(10);
-	v.push(10);
-	v.push(10);
+	stack_m<int> v = s;
+	//int v = 5;
+	//extract_min(s, v);
 
-	std::cout << s.count_occurrences(51) << std::endl;
-	std::cout << s.is_two_stack_equel(v) << std::endl;
-	/*for (size_t i = s.size(); i > 0; i--) {
+	size_t size = v.size();
+	for (size_t i = 0; i < size; i++) {
+		std::cout << v.top() << std::endl;
+		v.pop();
+	}
+
+	std::cout << " " << std::endl;
+	select_sort(s);
+	size = s.size();
+	for (size_t i = 0; i < size; i++) {
 		std::cout << s.top() << std::endl;
 		s.pop();
-	}*/
+	}
+	
 
 	return 0;
 }
