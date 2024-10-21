@@ -1,2 +1,16 @@
 ﻿  main.cpp
-  0510.vcxproj -> C:\Users\spor-\source\repos\FAC++\HomeWork\0510\x64\Debug\0510.exe
+C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(254,2): error C2664: "size_t count_occurrences<stack_m<int>>(stack_t &,T &)": невозможно преобразовать аргумент 2 из "int" в "T &"
+C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(254,2): error C2664:         with
+C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(254,2): error C2664:         [
+C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(254,2): error C2664:             stack_t=stack_m<int>,
+C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(254,2): error C2664:             T=int
+C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(254,2): error C2664:         ]
+C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(254,2): error C2664:         and
+C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(254,2): error C2664:         [
+C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(254,2): error C2664:             T=int
+C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(254,2): error C2664:         ]
+  C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(191,8):
+   см. объявление "count_occurrences"
+  C:\Users\spor-\source\repos\FAC++\HomeWork\0510\main.cpp(254,2):
+  при попытке сопоставить список аргументов "(stack_m<int>, int)"
+  

@@ -202,21 +202,21 @@ size_t count_occurrences(stack_t& stack, const decltype(stack.top())& value){
 	return c_occurrences;
 }
 
-template <typename stack_t> // task 5
-size_t count_occurrences(stack_t& stack, const decltype(stack.top())&& value) {
-	size_t c_occurrences = 0;
-
-	stack_t tmp = stack;
-
-	for (size_t i = 0; i < stack.size(); i++) {
-		if (tmp.top() == value) {
-			c_occurrences++;
-		}
-		tmp.pop();
-	}
-
-	return c_occurrences;
-}
+//template <typename stack_t> // task 5
+//size_t count_occurrences(stack_t& stack, const decltype(stack.top())&& value) {
+//	size_t c_occurrences = 0;
+//
+//	stack_t tmp = stack;
+//
+//	for (size_t i = 0; i < stack.size(); i++) {
+//		if (tmp.top() == value) {
+//			c_occurrences++;
+//		}
+//		tmp.pop();
+//	}
+//
+//	return c_occurrences;
+//}
 
 template<typename stack_t> // task 5
 bool is_two_stack_equel(stack_t& f_stack, stack_t& s_stack){
@@ -250,6 +250,8 @@ int main() {
 	s.push(6);
 	s.push(7);
 	s.push(8);
+
+	count_occurrences(s, 2);
 
 	stack_m<int> v = s;
 	//int v = 5;
