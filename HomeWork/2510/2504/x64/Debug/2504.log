@@ -1,2 +1,3 @@
 ﻿  main.cpp
+C:\Users\spor-\source\repos\FAC++\HomeWork\2510\main.cpp(227,23): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   2504.vcxproj -> C:\Users\spor-\source\repos\FAC++\HomeWork\2510\x64\Debug\2504.exe
