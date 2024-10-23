@@ -19,7 +19,7 @@ void extract_nodecreasing(stack_t& src, stack_t& dest) {
 	dest.push(src.top());
 	src.pop();
 
-	while (src.size() != 0 && src.top() < dest.top()) {
+	while (src.size() != 0 && src.top() > dest.top()) {
 		dest.push(src.top());
 		src.pop();
 	}
@@ -30,9 +30,9 @@ void extract_nodecreasing(stack_t& src, stack_t& dest) {
 template <typename stack_t>
 void merge_stacks_descending(stack_t& src1, stack_t& src2, stack_t& dest) {
 	
-	while (src1.size() != 0 || src2.size() != 0) {
+	while (src1.size() != 0 && src2.size() != 0) {
 		if (src1.top() > src2.top()) {
-			dest.push(src1);
+			dest.push(src1.top());
 			src1.pop();
 		}
 		else {
@@ -83,7 +83,7 @@ void sort_merge_stack(stack_t &src) {
 		}
 
 
-	} while (count != 1);
+	} while (count > 1);
 
 }
 
@@ -226,7 +226,7 @@ int main() {
 	std::mt19937 engine;
 	engine.seed(std::time(nullptr));
 
-	for (size_t i = 0; i < 100; i++) {
+	for (size_t i = 0; i < 10; i++) {
 		int val = engine();
 		s.push(val);
 	}
@@ -238,11 +238,18 @@ int main() {
 		tmp.pop();
 	}
 
-	tmp = s;
+	//tmp = s;
 
 	std::cout << "\n\n\n" << std::endl;
 
-	auto start = std::chrono::high_resolution_clock::now();
+	sort_merge_stack(s);
+
+	while (s.size() != 0) {
+		std::cout << s.top() << std::endl;
+		s.pop();
+	}
+
+	/*auto start = std::chrono::high_resolution_clock::now();
 
 	quick_sort_stack(tmp);
 
@@ -266,7 +273,7 @@ int main() {
 	std::cout << "\n\n\n" << std::endl;
 
 	std::cout << "Time first method: " << res_1.count() << std::endl;
-	std::cout << "Time second method: " << res_2.count() << std::endl;
+	std::cout << "Time second method: " << res_2.count() << std::endl;*/
 
 	return 0;
 }
