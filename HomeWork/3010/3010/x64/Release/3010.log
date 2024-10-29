@@ -1,0 +1,12 @@
+﻿  main.cpp
+C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267:         with
+C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267:         [
+C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267:             _Ty=int
+C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267:         ]
+  Создание кода
+  17 of 159 functions (10.7%) were compiled, the rest were copied from previous compilation.
+    6 functions were new in current compilation
+    22 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  3010.vcxproj -> C:\Users\spor-\source\repos\FAC++\HomeWork\3010\x64\Release\3010.exe

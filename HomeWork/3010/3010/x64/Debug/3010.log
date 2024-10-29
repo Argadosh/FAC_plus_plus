@@ -1,0 +1,7 @@
+﻿  main.cpp
+C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267:         with
+C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267:         [
+C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267:             _Ty=int
+C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267:         ]
+  3010.vcxproj -> C:\Users\spor-\source\repos\FAC++\HomeWork\3010\x64\Debug\3010.exe
