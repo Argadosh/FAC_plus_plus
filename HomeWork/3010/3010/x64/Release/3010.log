@@ -4,9 +4,24 @@ C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267: 
 C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267:         [
 C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267:             _Ty=int
 C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53): warning C4267:         ]
+  C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(16,53):
+  контекст создания экземпляра шаблона (сначала самый старый)
+  	C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(98,2):
+  	выполняется компиляция ссылки на экземпляр шаблон функции "void quick_sort_stack<std::stack<int,std::deque<int,std::allocator<int>>>>(stack_t &)"
+          with
+          [
+              stack_t=std::stack<int,std::deque<int,std::allocator<int>>>
+          ]
+  	C:\Users\spor-\source\repos\FAC++\HomeWork\3010\main.cpp(46,14):
+  	выполняется компиляция ссылки на экземпляр шаблон функции "auto getRandomElement<stack_t>(stack_t &)"
+          with
+          [
+              stack_t=std::stack<int,std::deque<int,std::allocator<int>>>
+          ]
+  
   Создание кода
-  17 of 159 functions (10.7%) were compiled, the rest were copied from previous compilation.
-    6 functions were new in current compilation
-    22 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
+  7 of 156 functions ( 4.5%) were compiled, the rest were copied from previous compilation.
+    6 functions were new in current compilation
+    19 functions had inline decision re-evaluated but remain unchanged
   3010.vcxproj -> C:\Users\spor-\source\repos\FAC++\HomeWork\3010\x64\Release\3010.exe

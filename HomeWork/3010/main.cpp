@@ -24,6 +24,7 @@ auto getRandomElement(stack_t &src) {
 	}
 
 	auto r_element = src.top();
+	src.pop();
 
 	while (tmp.size() != 0) {
 		src.push(tmp.top());

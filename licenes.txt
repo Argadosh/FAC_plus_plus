@@ -423,3 +423,82 @@ Non-modifying sequence operations
 	Копирование
 	
 		copy(str_vec.begin(), str_vec.end(), back_inserter(str_vec2));
+06.11.24
+
+Реализация класса Matrix
+
+
+	class Matrix{
+	private:
+		std::vector<std::vector<double>> m;
+	public:
+		~Matrix() {};
+		Matrix(); // Создаёт пустую матрицу
+		Matrix(size_t rows, size_t cols);
+		Matrix(size_t n);
+		static Matrix unit_matrix(size_t n);
+		static Matrix row_matrix(size_t n);
+		static Matrix col_matrix(size_t n);
+		Matrix(const std::vector<double>& diag);
+		Matrix(const Matrix& obj);
+		Matrix(Matrix&& obj);
+		Matrix(const std::vector<std::vector<double>>& src);
+		Matrix(std::vector<std::vector<double>>&& src);
+		size_t rowSize() const;
+		size_t colSize() const;
+		size_t size() cost;
+		std::vector<double>& operator[](size_t row); // Для записи
+		const std::vector<double>& operator[](size_t row) const;
+		Matrix& operator=(const Matrix& src);
+		Matrix& operator=(Matrix&& src);
+		Matrix operator+(const Matrix& rhs) const;
+		Matrix opeartor-(const Matrix& rhs) const;
+		Matrix operator*(const Matrix& rhs) const;
+		Matrix operator*(double mulltiplier) const;
+		Matrix operator^(int power) const;
+		friend Matrix operator*(double mulltiplier, const Matrix& obj);
+		Matrix operator/(double divider) const;
+		Matrix operator/(const Matrix& rhs) const;
+		Matrix& operator+=(const Matrix& rhs) const;
+		Matrix& operator-=(const Matrix& rhs) const;
+		Matrix& operator*=(const Matrix& rhs) const;
+		Matrix& operator*=(double mulltiplier) const;
+		friend Matrix operator*=(double mulltiplier, const Matrix& obj);
+		Matrix operator/=(double divider) const;
+		Matrix operator/=(const Matrix rhs) const;
+		Matrix inverse() const;
+		double det() const;
+		Matrix transpose() const;
+	};
+	
+Некорневые и корневые деревья
+	Опр. Некорневое дерево - связный граф без циклов.
+	Опр. Циклом в графе наз-ся замкнутый путь, содержащий хотя бы одно ребро.
+	
+	Способы хранения некорневого дерева:
+		1) Матрица смежности.
+			Очень неэкономичное использование памяти. Очень долгоие определение смежных вершин.
+		
+		2) Списки смежности.
+			|_|_|_|_|i|_|_|_|_|
+					 ^
+					 |
+					 _				3N - 2 ячейки памяти.
+					|_|
+					|_|
+		
+		3) Код Прюхера.
+			Опр. Кодом Прюхера пронумерованного от 0 до (N-1) дерева T наз-ся последователньость из (N-2) чисел, построенная по следующему правилу:
+				Повтораяем N-2 раза
+					1) Находим в T вершину v с наименьшим номером, имеющую ровно 1 соседа u ( висячая вершина )
+					2) Добавляем в конец кода u 
+					3) Удаляем из T вершину v и ребро u-v
+				Расшифровка кода Прюхера
+					1) Создаём список S = {0, 1, .... , N-1}
+					2) Просматриваем код слева-направо:
+						2.1) Пусть a - текущая позиция кода.
+						2.2) Находим в списке S наименьшее число, отсутствующее в кода, начиная с позиции a, пусть это число b.
+						2.3) Добавляем в дерево ребро a-b.
+						2.4) Из S убираем b.
+					3) В конце в списке S останется два числа S1 и S2.
+					4) Добавляем в дерево S1, S2.

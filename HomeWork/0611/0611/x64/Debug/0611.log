@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\spor-\Downloads\Telegram Desktop\main.cpp(44,1): warning C4715: getTermType: значение возвращается не при всех путях выполнения
+  0611.vcxproj -> C:\Users\spor-\source\repos\FAC++\HomeWork\0611\x64\Debug\0611.exe

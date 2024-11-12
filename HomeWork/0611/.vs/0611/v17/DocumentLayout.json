@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\spor-\\source\\repos\\FAC\u002B\u002B\\HomeWork\\0611\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5DA22C7A-EA16-43E5-9BF5-6485B0752D16}|0611.vcxproj|C:\\Users\\spor-\\Downloads\\Telegram Desktop\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\spor-\\Downloads\\Telegram Desktop\\main.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Downloads\\Telegram Desktop\\main.cpp",
+              "ToolTip": "C:\\Users\\spor-\\Downloads\\Telegram Desktop\\main.cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Downloads\\Telegram Desktop\\main.cpp",
+              "ViewState": "AQIAAHEAAAAAAAAAAAAowC0AAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-06T11:35:52.856Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
